@@ -34,3 +34,9 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+@keyframes glitter {
+  0% { filter: drop-shadow(0 0 5px gold) drop-shadow(0 0 15px red); }
+  50% { filter: drop-shadow(0 0 10px gold) drop_shadow(0 0 20px red); }
+  100% { filter: drop_shadow(0 0 5px gold) drop-shadow(0 0 15px red); }
+}

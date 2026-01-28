@@ -42,11 +42,19 @@ export function About() {
       >
         {/* Header */}
         <div className="mb-16">
-          <h1 className="text-6xl font-bold text-slate-900 mb-4">About Us</h1>
+          <h1 className="text-6xl font-bold mb-4" style={{ fontFamily: "'Inter', sans-serif", background: 'linear-gradient(to right, gold, red)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 0 5px gold) drop-shadow(0 0 15px red)', animation: 'glitter 1.5s infinite' }}>AT NEXORIX</h1>
           <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-full" />
-          <p className="text-xl text-slate-600 mt-6 max-w-3xl">
-            We're more than a tech company—we're architects of digital transformation, 
-            passionate about creating solutions that make a difference.
+          <p className="text-xl text-slate-600 mt-6 max-w-3xl" style={{ fontFamily: "'Inter', sans-serif" }}>
+            we don’t adapt to the future — we engineer it with AI at the core.
+          </p>
+          <p className="text-xl text-slate-600 mt-2 max-w-3xl" style={{ fontFamily: "'Inter', sans-serif" }}>
+            Nexorix Techlab is a forward-thinking technology company focused on building intelligent, secure, and scalable digital solutions. We create products that help businesses move beyond traditional systems and confidently step into the next era of technology.
+          </p>
+          <p className="text-xl text-slate-600 mt-2 max-w-3xl" style={{ fontFamily: "'Inter', sans-serif" }}>
+            With a strong foundation in artificial intelligence, automation, and modern software engineering, we turn complex challenges into smart, data-driven solutions. Every product we build is designed for long-term impact, adaptability, and performance in a rapidly evolving digital landscape.
+          </p>
+          <p className="text-xl text-slate-600 mt-2 max-w-3xl" style={{ fontFamily: "'Inter', sans-serif" }}>
+            At Nexorix Techlab, innovation is not an option — it is our standard.
           </p>
         </div>
 
