@@ -15,8 +15,8 @@ export function Navigation({ activePage, onNavigate }: NavigationProps) {
   ];
 
   return (
-    <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-50">
-      <div className="flex flex-col gap-8">
+    <nav className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+      <div className="flex flex-row gap-8">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activePage === item.id;
@@ -29,10 +29,10 @@ export function Navigation({ activePage, onNavigate }: NavigationProps) {
               aria-label={item.label}
             >
               <div
-                className={`p-3 rounded-xl transition-all duration-300 ${
+                className={`p-3 rounded-xl transition-all duration-300 transform ${
                   isActive
-                    ? 'bg-indigo-50 text-indigo-600 shadow-lg shadow-indigo-100'
-                    : 'text-slate-400 hover:text-slate-700 hover:bg-slate-50'
+                    ? 'bg-blue-500 text-white shadow-lg shadow-blue-400/50 scale-125'
+                    : 'text-[var(--muted-galaxy-blue)] hover:text-white hover:bg-blue-500/50'
                 }`}
               >
                 <Icon className="w-6 h-6" strokeWidth={1.5} />
