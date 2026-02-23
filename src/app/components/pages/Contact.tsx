@@ -45,6 +45,7 @@ export function Contact() {
         <Button
           variant="outline"
           className="bg-transparent border-[var(--galaxy-blue)] text-white hover:bg-[var(--galaxy-blue)]/10 hover:shadow-glow-blue rounded-lg px-8 py-3 text-lg transition-all duration-300"
+          onClick={() => alert('CONTACT: 9363870236\nMail ID: krishsivi0599@gmail.com')}
         >
           Get in Touch
         </Button>

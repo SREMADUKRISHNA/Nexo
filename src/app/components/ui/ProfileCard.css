@@ -288,6 +288,7 @@
   transform-origin: 50% 100%;
   transform: translateX(-50%) translateY(0%);
   object-fit: cover;
+  object-position: center top;
   bottom: -1px;
   backface-visibility: hidden;
   will-change: transform;

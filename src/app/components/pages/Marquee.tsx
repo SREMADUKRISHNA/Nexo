@@ -1,32 +1,28 @@
 import { motion } from 'framer-motion';
 import ProfileCard from '../ui/ProfileCard';
 
-export function Marquee({ items, direction = 'left' }) {
-  const duplicatedItems = [...items, ...items, ...items, ...items];
-
-  const marqueeVariants = {
-    animate: {
-      x: direction === 'left' ? ['0%', '-200%'] : ['-200%', '0%'],
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: 'loop',
-          duration: 40,
-          ease: 'linear',
-        },
-      },
-    },
-  };
-
+export function Marquee({ items, direction = 'left', onCardClick }) {
+  const duplicatedItems = [...items, ...items];
+  
   return (
     <div className="w-full overflow-hidden">
       <motion.div
         className="flex"
-        variants={marqueeVariants}
-        animate="animate"
+        style={{ gap: '1.5rem' }}
+        animate={{
+          x: direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%']
+        }}
+        transition={{
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 30,
+            ease: "linear"
+          }
+        }}
       >
         {duplicatedItems.map((member, index) => (
-          <div key={index} className="flex-shrink-0 mx-4">
+          <div key={index} className="flex-shrink-0" onClick={() => onCardClick?.(member)} style={{ cursor: 'pointer' }}>
             <ProfileCard
               name={member.name}
               title={member.role}
