@@ -32,17 +32,20 @@
 }
 
 .pc-header {
+  font-family: 'Inter', sans-serif;
   text-align: center;
   color: var(--galaxy-blue);
   margin-bottom: 1rem;
 }
 
 .pc-header h3 {
+  font-family: 'Inter', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
 .pc-header p {
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   font-weight: 400;
 }
@@ -353,6 +356,7 @@
 }
 
 .pc-handle {
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: var(--soft-white);
@@ -360,6 +364,7 @@
 }
 
 .pc-status {
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: var(--muted-galaxy-blue);
   line-height: 1;
@@ -373,6 +378,7 @@
 }
 
 .pc-contact-btn {
+  font-family: 'Inter', sans-serif;
   border: 1px solid var(--galaxy-blue);
   border-radius: 8px;
   padding: 12px 16px;
@@ -413,6 +419,7 @@
 }
 
 .pc-details h3 {
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   margin: 0;
   font-size: 1.5em;
@@ -421,6 +428,7 @@
 }
 
 .pc-details p {
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   position: relative;
   top: -12px;

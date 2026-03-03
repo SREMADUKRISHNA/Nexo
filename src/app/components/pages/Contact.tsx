@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 import PixelBlast from "../PixelBlast"; // Import the PixelBlast component
+import { useState } from "react";
 
 export function Contact() {
+  const [showMessage, setShowMessage] = useState(false);
+
   return (
     <div className="min-h-screen w-full bg-black flex flex-col items-center justify-center text-center p-4 relative"> {/* Added relative positioning */}
       <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 0 }}>
@@ -45,10 +48,34 @@ export function Contact() {
         <Button
           variant="outline"
           className="bg-transparent border-[var(--galaxy-blue)] text-white hover:bg-[var(--galaxy-blue)]/10 hover:shadow-glow-blue rounded-lg px-8 py-3 text-lg transition-all duration-300"
-          onClick={() => alert('CONTACT: 9363870236\nMail ID: krishsivi0599@gmail.com')}
+          onClick={() => setShowMessage(true)}
         >
           Get in Touch
         </Button>
+
+        {showMessage && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="mt-8 bg-gradient-to-br from-[var(--galaxy-blue)]/30 via-[var(--galaxy-blue)]/20 to-transparent border-2 border-[var(--galaxy-blue)] rounded-2xl p-8 backdrop-blur-md shadow-[0_0_30px_rgba(40,3,160,0.4)] relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--galaxy-blue)]/10 to-transparent animate-pulse" />
+            <div className="relative z-10">
+              <p className="text-white text-2xl font-bold mb-6 tracking-wide">Contact Nexorix Techlab</p>
+              <div className="space-y-4">
+                <div className="flex items-center justify-center gap-3 text-[var(--soft-white)] text-lg">
+                  <span className="text-[var(--galaxy-blue)] font-semibold">📱</span>
+                  <span>8220411848</span>
+                </div>
+                <div className="flex items-center justify-center gap-3 text-[var(--soft-white)] text-lg">
+                  <span className="text-[var(--galaxy-blue)] font-semibold">✉️</span>
+                  <span>nexorixtechlabs@gmail.com</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </motion.div>
 
       <motion.div
@@ -60,21 +87,27 @@ export function Contact() {
         <h2 className="text-xl text-[var(--muted-galaxy-blue)] mb-4">Stay Connected</h2>
         <div className="flex space-x-6">
           <a
-            href="#"
+            href="https://www.instagram.com/nexorixtechlabs?igsh=MWU5eGdqZ25nODIybQ=="
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-white hover:text-[var(--galaxy-blue)] hover:shadow-glow-blue transition-all duration-300"
           >
             Instagram
           </a>
           <span className="text-[var(--muted-galaxy-blue)]">·</span>
           <a
-            href="#"
+            href="https://x.com/NEXORIXTECHLABS"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-white hover:text-[var(--galaxy-blue)] hover:shadow-glow-blue transition-all duration-300"
           >
             X (Twitter)
           </a>
           <span className="text-[var(--muted-galaxy-blue)]">·</span>
           <a
-            href="#"
+            href="https://www.linkedin.com/in/nexorix-tech-labs-8183783aa"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-white hover:text-[var(--galaxy-blue)] hover:shadow-glow-blue transition-all duration-300"
           >
             LinkedIn

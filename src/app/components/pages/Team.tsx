@@ -109,7 +109,7 @@ export function Team() {
               transition={{ duration: 0.6 }}
             >
               <div className="text-center mb-20">
-                <h1 className="text-6xl font-bold text-[var(--galaxy-blue)] heading">OUR TEAM</h1>
+                <h1 className="text-6xl font-bold text-[var(--galaxy-blue)] heading" style={{ fontFamily: 'Inter, sans-serif' }}>OUR TEAM</h1>
                 <div className="w-24 h-1.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full mx-auto mt-4" />
               </div>
             </motion.div>
@@ -124,18 +124,16 @@ export function Team() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto"
+            className="flex flex-col lg:flex-row items-center lg:items-start gap-16 lg:gap-32 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto"
           >
             <motion.div
               initial={{ scale: 1 }}
-              animate={{ scale: [1, 1.2, 1.15, 1.2, 1.15] }}
+              animate={{ scale: 1.5 }}
               transition={{ 
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut"
+                duration: 0.6,
+                ease: "easeOut"
               }}
-              className="flex-shrink-0 w-full sm:w-auto"
+              className="flex-shrink-0 w-full sm:w-auto lg:ml-12"
               onClick={() => setSelectedMember(null)}
               style={{ cursor: 'pointer' }}
             >
@@ -154,12 +152,12 @@ export function Team() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="flex-1 text-white pt-0 lg:pt-8 w-full"
+              className="text-white pt-0 lg:pt-8 w-full lg:flex-1 z-10"
             >
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6" style={{ color: 'var(--galaxy-blue)' }}>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6" style={{ color: 'var(--galaxy-blue)', fontFamily: 'Inter, sans-serif' }}>
                 Message from {selectedMember.role}
               </h2>
-              <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'var(--galaxy-blue)' }}>
+              <p className="text-xl sm:text-2xl lg:text-3xl leading-relaxed" style={{ color: 'var(--galaxy-blue)', fontFamily: 'Inter, sans-serif' }}>
                 {selectedMember.message}
               </p>
             </motion.div>
