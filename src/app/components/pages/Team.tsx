@@ -100,7 +100,7 @@ export function Team() {
   };
 
   return (
-    <div className="min-h-screen py-24">
+    <div className="min-h-screen py-12 md:py-24 px-4 sm:px-6 lg:px-8">
       <AnimatePresence mode="wait">
         {!selectedMember ? (
           <motion.div key="team-view">
@@ -154,12 +154,12 @@ export function Team() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-white pt-0 lg:pt-8 w-full lg:flex-1 z-10"
+              className="pt-0 lg:pt-8 w-full lg:flex-1 z-10"
             >
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6" style={{ color: 'var(--galaxy-blue)', fontFamily: 'Inter, sans-serif' }}>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6" style={{ color: 'black', fontFamily: 'Inter, sans-serif' }}>
                 Message from {selectedMember.role}
               </h2>
-              <p className="text-xl sm:text-2xl lg:text-3xl leading-relaxed" style={{ color: 'var(--galaxy-blue)', fontFamily: 'Inter, sans-serif' }}>
+              <p className="text-xl sm:text-2xl lg:text-3xl leading-relaxed" style={{ color: 'black', fontFamily: 'Inter, sans-serif' }}>
                 {selectedMember.message}
               </p>
             </motion.div>

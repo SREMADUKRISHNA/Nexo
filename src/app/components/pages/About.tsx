@@ -22,14 +22,14 @@ export function About() {
             <p className="text-lg md:text-2xl text-black font-bold text-center mt-4 md:mt-6 max-w-3xl mx-auto">
               we don’t adapt to the future — we engineer it with AI at the core.
             </p>
-            <div className="text-center space-y-4">
-              <p className="text-base md:text-2xl text-black mt-2 max-w-3xl mx-auto" style={{ fontFamily: "'Poppins', sans-serif" }}>
+            <div className="space-y-4">
+              <p className="text-base md:text-2xl text-black mt-2 max-w-3xl mx-auto text-justify" style={{ fontFamily: "'Inter', sans-serif" }}>
                 Nexorix Techlab is a forward-thinking technology company focused on building intelligent, secure, and scalable digital solutions. We create products that help businesses move beyond traditional systems and confidently step into the next era of technology.
               </p>
-              <p className="text-base md:text-2xl text-black mt-2 max-w-3xl mx-auto" style={{ fontFamily: "'Poppins', sans-serif" }}>
+              <p className="text-base md:text-2xl text-black mt-2 max-w-3xl mx-auto text-justify" style={{ fontFamily: "'Inter', sans-serif" }}>
                 With a strong foundation in artificial intelligence, automation, and modern software engineering, we turn complex challenges into smart, data-driven solutions. Every product we build is designed for long-term impact, adaptability, and performance in a rapidly evolving digital landscape.
               </p>
-              <p className="text-base md:text-2xl text-black mt-2 max-w-3xl mx-auto" style={{ fontFamily: "'Poppins', sans-serif" }}>
+              <p className="text-base md:text-2xl text-black mt-2 max-w-3xl mx-auto text-justify" style={{ fontFamily: "'Inter', sans-serif" }}>
                 <strong>At Nexorix Techlab, innovation is not an option — it is our standard.</strong>
               </p>
             </div>

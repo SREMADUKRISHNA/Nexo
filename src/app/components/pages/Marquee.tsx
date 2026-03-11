@@ -7,8 +7,7 @@ export function Marquee({ items, direction = 'left', onCardClick }) {
   return (
     <div className="w-full overflow-hidden">
       <motion.div
-        className="flex"
-        style={{ gap: '1.5rem' }}
+        className="flex gap-4 md:gap-6"
         animate={{
           x: direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%']
         }}
@@ -16,7 +15,7 @@ export function Marquee({ items, direction = 'left', onCardClick }) {
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 30,
+            duration: 60,
             ease: "linear"
           }
         }}

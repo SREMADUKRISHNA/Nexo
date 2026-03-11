@@ -12,7 +12,7 @@ export function Projects() {
         {/* Header */}
         <div className="mb-8 md:mb-16 text-center md:text-left">
           <h1 className="text-4xl md:text-6xl font-bold text-[var(--galaxy-blue)] mb-4 heading">PROJECTS</h1>
-          <p className="text-lg md:text-xl text-black mt-6 max-w-3xl">
+          <p className="text-xl md:text-2xl text-black mt-6 max-w-3xl text-justify" style={{ fontFamily: "'Inter', sans-serif" }}>
             The automated healthcare bot is designed to mitigate hospital backlogs by managing high volumes of patient inquiries and appointment scheduling in a fully automated manner. By streamlining routine interactions, the solution reduces operational delays, lowers administrative burden, and improves overall efficiency within healthcare systems.
           </p>
         </div>

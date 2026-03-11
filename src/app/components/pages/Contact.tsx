@@ -3,11 +3,12 @@ import { Button } from "../ui/button";
 import PixelBlast from "../PixelBlast"; // Import the PixelBlast component
 import { useState } from "react";
 
+
 export function Contact() {
   const [showMessage, setShowMessage] = useState(false);
 
   return (
-    <div className="min-h-screen w-full bg-black flex flex-col items-center justify-center text-center p-4 relative"> {/* Added relative positioning */}
+    <div className="min-h-screen w-full bg-black flex flex-col items-center justify-center text-center p-6 md:p-8 relative"> {/* Added relative positioning */}
       <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 0 }}>
         <PixelBlast
           variant="square"
@@ -62,13 +63,13 @@ export function Contact() {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--galaxy-blue)]/10 to-transparent animate-pulse" />
             <div className="relative z-10">
-              <p className="text-white text-2xl font-bold mb-6 tracking-wide">Contact Nexorix Techlab</p>
+              <p className="text-white text-xl md:text-2xl font-bold mb-6 tracking-wide">Contact Nexorix Techlab</p>
               <div className="space-y-4">
-                <div className="flex items-center justify-center gap-3 text-[var(--soft-white)] text-lg">
+                <div className="flex items-center justify-center gap-3 text-[var(--soft-white)] text-base md:text-lg">
                   <span className="text-[var(--galaxy-blue)] font-semibold">📱</span>
                   <span>8220411848</span>
                 </div>
-                <div className="flex items-center justify-center gap-3 text-[var(--soft-white)] text-lg">
+                <div className="flex items-center justify-center gap-3 text-[var(--soft-white)] text-base md:text-lg">
                   <span className="text-[var(--galaxy-blue)] font-semibold">✉️</span>
                   <span>nexorixtechlabs@gmail.com</span>
                 </div>
@@ -85,7 +86,7 @@ export function Contact() {
         className="mt-16 z-10 relative" // Added relative and z-10 for content to be above background
       >
         <h2 className="text-xl text-[var(--muted-galaxy-blue)] mb-4">Stay Connected</h2>
-        <div className="flex space-x-6">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
           <a
             href="https://www.instagram.com/nexorixtechlabs?igsh=MWU5eGdqZ25nODIybQ=="
             target="_blank"
@@ -94,21 +95,19 @@ export function Contact() {
           >
             Instagram
           </a>
-          <span className="text-[var(--muted-galaxy-blue)]">·</span>
           <a
             href="https://x.com/NEXORIXTECHLABS"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-[var(--galaxy-blue)] hover:shadow-glow-blue transition-all duration-300"
+            className="text-white hover:text-[var(--galaxy-blue)] hover:shadow-glow-blue transition-all duration-300 border-l border-[var(--muted-galaxy-blue)] pl-4 md:pl-6"
           >
             X (Twitter)
           </a>
-          <span className="text-[var(--muted-galaxy-blue)]">·</span>
           <a
             href="https://www.linkedin.com/in/nexorix-tech-labs-8183783aa"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-[var(--galaxy-blue)] hover:shadow-glow-blue transition-all duration-300"
+            className="text-white hover:text-[var(--galaxy-blue)] hover:shadow-glow-blue transition-all duration-300 border-l border-[var(--muted-galaxy-blue)] pl-4 md:pl-6"
           >
             LinkedIn
           </a>
