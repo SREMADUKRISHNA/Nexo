@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Navigation } from '@/app/components/Navigation';
 import { GridPattern } from '@/app/components/GridPattern';
@@ -21,29 +21,10 @@ export default function App() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isLogoPopped, setIsLogoPopped] = useState(false);
 
-  const handleScroll = () => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      const pageHeight = window.innerHeight;
-      const currentPageIndex = Math.round(container.scrollTop / pageHeight);
-      const currentPageId = pages[currentPageIndex]?.id;
-      if (currentPageId && currentPageId !== activePage) {
-        setActivePage(currentPageId);
-      }
-    }
-  };
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    container?.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      container?.removeEventListener('scroll', handleScroll);
-    };
-  }, [activePage]);
-
   const handleNavigate = (pageId: string) => {
     const pageIndex = pages.findIndex(p => p.id === pageId);
     if (pageIndex !== -1 && scrollContainerRef.current) {
+      setActivePage(pageId);
       scrollContainerRef.current.scrollTo({
         top: pageIndex * window.innerHeight,
         behavior: 'smooth',
@@ -74,7 +55,7 @@ export default function App() {
       {/* Page Content */}
       <div
         ref={scrollContainerRef}
-        className="h-screen overflow-y-scroll snap-y snap-mandatory"
+        className="h-screen overflow-hidden snap-y snap-mandatory"
       >
         {pages.map(page => (
           <div key={page.id} className="h-screen snap-start">
