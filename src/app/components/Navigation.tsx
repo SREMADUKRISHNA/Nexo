@@ -15,8 +15,8 @@ export function Navigation({ activePage, onNavigate }: NavigationProps) {
   ];
 
   return (
-    <nav className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
-      <div className="flex flex-row gap-8">
+    <nav className="fixed bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-50">
+      <div className="flex flex-row gap-4 md:gap-8 bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/20">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activePage === item.id;
@@ -29,17 +29,17 @@ export function Navigation({ activePage, onNavigate }: NavigationProps) {
               aria-label={item.label}
             >
               <div
-                className={`p-3 rounded-xl transition-all duration-300 transform ${
+                className={`p-2 md:p-3 rounded-xl transition-all duration-300 transform ${
                   isActive
-                    ? 'bg-blue-500 text-white shadow-lg shadow-blue-400/50 scale-125'
+                    ? 'bg-blue-500 text-white shadow-lg shadow-blue-400/50 scale-110 md:scale-125'
                     : 'text-[var(--muted-galaxy-blue)] hover:text-white hover:bg-blue-500/50'
                 }`}
               >
-                <Icon className="w-6 h-6" strokeWidth={1.5} />
+                <Icon className="w-5 h-5 md:w-6 md:h-6" strokeWidth={1.5} />
               </div>
               
-              {/* Tooltip */}
-              <div className="absolute left-full ml-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">
+              {/* Tooltip - hidden on smaller screens */}
+              <div className="absolute left-1/2 -translate-x-1/2 -top-12 opacity-0 group-hover:md:opacity-100 pointer-events-none transition-opacity duration-200 hidden md:block">
                 <div className="bg-slate-900 text-white px-3 py-1.5 rounded-lg text-sm whitespace-nowrap">
                   {item.label}
                 </div>

@@ -3,9 +3,11 @@ import { Marquee } from './Marquee';
 import ProfileCard from '../ui/ProfileCard';
 import '../ui/ProfileCard.css';
 import { useState } from 'react';
+import { useIsMobile } from '../ui/use-mobile';
 
 export function Team() {
   const [selectedMember, setSelectedMember] = useState(null);
+  const isMobile = useIsMobile();
 
   const teamMembers = [
     {
@@ -108,12 +110,12 @@ export function Team() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="text-center mb-20">
-                <h1 className="text-6xl font-bold text-[var(--galaxy-blue)] heading" style={{ fontFamily: 'Inter, sans-serif' }}>OUR TEAM</h1>
-                <div className="w-24 h-1.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full mx-auto mt-4" />
+              <div className="text-center mb-10 md:mb-20">
+                <h1 className="text-4xl md:text-6xl font-bold text-[var(--galaxy-blue)] heading" style={{ fontFamily: 'Inter, sans-serif' }}>OUR TEAM</h1>
+                <div className="w-16 md:w-24 h-1.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full mx-auto mt-4" />
               </div>
             </motion.div>
-            <div className="space-y-8">
+            <div className="space-y-4 md:space-y-8">
               <Marquee items={topRow} direction="left" onCardClick={handleCardClick} />
               <Marquee items={bottomRow} direction="right" onCardClick={handleCardClick} />
             </div>
@@ -128,7 +130,7 @@ export function Team() {
           >
             <motion.div
               initial={{ scale: 1 }}
-              animate={{ scale: 1.5 }}
+              animate={{ scale: isMobile ? 1.1 : 1.5 }}
               transition={{ 
                 duration: 0.6,
                 ease: "easeOut"
