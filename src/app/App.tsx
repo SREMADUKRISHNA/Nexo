@@ -1,5 +1,6 @@
-import { useState, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Navigation } from '@/app/components/Navigation';
 import { GridPattern } from '@/app/components/GridPattern';
 import { Home } from '@/app/components/pages/Home';
@@ -8,56 +9,30 @@ import { Projects } from '@/app/components/pages/Projects';
 import { Team } from '@/app/components/pages/Team';
 import { Contact } from '@/app/components/pages/Contact';
 
-const pages = [
-  { id: 'home', component: <Home /> },
-  { id: 'about', component: <About /> },
-  { id: 'projects', component: <Projects /> },
-  { id: 'team', component: <Team /> },
-  { id: 'contact', component: <Contact /> },
-];
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
-  const [activePage, setActivePage] = useState('home');
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  const activePage = location.pathname === '/' ? 'home' : location.pathname.substring(1);
   const [isLogoPopped, setIsLogoPopped] = useState(false);
 
-  const handleNavigate = (pageId: string) => {
-    const pageIndex = pages.findIndex(p => p.id === pageId);
-    if (pageIndex !== -1 && scrollContainerRef.current) {
-      setActivePage(pageId);
-      scrollContainerRef.current.scrollTo({
-        top: pageIndex * window.innerHeight,
-        behavior: 'smooth',
-      });
-    }
-  };
-
-  const handlePageClick = (e: React.MouseEvent) => {
-    const target = e.target as HTMLElement;
-    
-    // If the click is on an interactive element (button, link, etc.)
-    // or if the element has a pointer cursor (indicating it's clickable),
-    // we don't want to advance the page.
-    if (
-      target.closest('button, a, input, textarea, [role="button"]') ||
-      window.getComputedStyle(target).cursor === 'pointer'
-    ) {
-      return;
-    }
-
-    const currentIndex = pages.findIndex(p => p.id === activePage);
-    const nextIndex = (currentIndex + 1) % pages.length;
-    handleNavigate(pages[nextIndex].id);
-  };
-
   return (
-    <div className="bg-white relative">
+    <div className="bg-white relative min-h-screen">
+      <ScrollToTop />
       {/* Logo */}
       {activePage !== 'contact' && (
         <motion.img
           src="/logo.png"
           alt="Logo"
-          className="absolute top-4 left-4 md:top-8 md:left-8 w-12 h-12 md:w-20 md:h-20 cursor-pointer z-20"
+          className="fixed top-4 left-4 md:top-8 md:left-8 w-12 h-12 md:w-20 md:h-20 cursor-pointer z-20"
           onClick={() => setIsLogoPopped(!isLogoPopped)}
           animate={{ scale: isLogoPopped ? 1.5 : 1 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -68,20 +43,19 @@ export default function App() {
       {activePage !== 'contact' && <GridPattern />}
 
       {/* Navigation */}
-      <Navigation activePage={activePage} onNavigate={handleNavigate} />
+      <Navigation activePage={activePage} onNavigate={() => {}} />
 
       {/* Page Content */}
-      <div
-        ref={scrollContainerRef}
-        className="h-screen overflow-hidden"
-        onClick={handlePageClick}
-      >
-        {pages.map(page => (
-          <div key={page.id} className="h-screen">
-            {page.component}
-          </div>
-        ))}
-      </div>
+      <main className="relative z-10">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
     </div>
   );
 }

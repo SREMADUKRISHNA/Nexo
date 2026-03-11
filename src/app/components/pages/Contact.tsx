@@ -8,7 +8,7 @@ export function Contact() {
   const [showMessage, setShowMessage] = useState(false);
 
   return (
-    <div className="min-h-screen w-full bg-black flex flex-col items-center justify-center text-center p-6 md:p-8 relative"> {/* Added relative positioning */}
+    <div className="min-h-dvh w-full bg-black flex flex-col items-center justify-center text-center p-6 md:p-8 relative"> {/* Added relative positioning */}
       <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 0 }}>
         <PixelBlast
           variant="square"
@@ -38,17 +38,17 @@ export function Contact() {
         transition={{ duration: 0.8 }}
         className="max-w-4xl mx-auto z-10 relative" // Added relative and z-10 for content to be above background
       >
-        <h1 className="text-7xl md:text-9xl font-bold text-[var(--galaxy-blue)] mb-6 futuristic-heading">
+        <h1 className="text-5xl md:text-9xl font-bold text-[var(--galaxy-blue)] mb-6 futuristic-heading leading-none">
           Let’s Build What’s Next
         </h1>
-        <p className="text-xl md:text-2xl text-[var(--soft-white)] max-w-2xl mx-auto mb-8">
+        <p className="text-base md:text-2xl text-[var(--soft-white)] max-w-2xl mx-auto mb-10 leading-relaxed px-2">
           Have an idea, a challenge, or a vision that needs execution?
           We collaborate with thinkers, builders, and innovators to turn bold ideas into real solutions.
           Drop us a message—this is where progress begins.
         </p>
         <Button
           variant="outline"
-          className="bg-transparent border-[var(--galaxy-blue)] text-white hover:bg-[var(--galaxy-blue)]/10 hover:shadow-glow-blue rounded-lg px-8 py-3 text-lg transition-all duration-300"
+          className="bg-transparent border-[var(--galaxy-blue)] text-white hover:bg-[var(--galaxy-blue)]/10 hover:shadow-glow-blue rounded-lg px-10 py-4 text-lg transition-all duration-300 h-auto"
           onClick={() => setShowMessage(true)}
         >
           Get in Touch

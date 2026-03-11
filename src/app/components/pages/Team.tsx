@@ -100,7 +100,7 @@ export function Team() {
   };
 
   return (
-    <div className="min-h-screen py-12 md:py-24 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-dvh py-20 md:py-24 px-4 sm:px-6 lg:px-8">
       <AnimatePresence mode="wait">
         {!selectedMember ? (
           <motion.div key="team-view">
@@ -111,11 +111,11 @@ export function Team() {
               transition={{ duration: 0.6 }}
             >
               <div className="text-center mb-10 md:mb-20">
-                <h1 className="text-4xl md:text-6xl font-bold text-[var(--galaxy-blue)] heading" style={{ fontFamily: 'Inter, sans-serif' }}>OUR TEAM</h1>
-                <div className="w-16 md:w-24 h-1.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full mx-auto mt-4" />
+                <h1 className="text-5xl md:text-7xl font-bold text-[var(--galaxy-blue)] heading leading-none" style={{ fontFamily: 'Inter, sans-serif' }}>OUR TEAM</h1>
+                <div className="w-16 md:w-24 h-1.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full mx-auto mt-6" />
               </div>
             </motion.div>
-            <div className="space-y-4 md:space-y-8">
+            <div className="space-y-6 md:space-y-12">
               <Marquee items={topRow} direction="left" onCardClick={handleCardClick} />
               <Marquee items={bottomRow} direction="right" onCardClick={handleCardClick} />
             </div>
@@ -126,16 +126,16 @@ export function Team() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col lg:flex-row items-center lg:items-start gap-16 lg:gap-32 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto"
+            className="flex flex-col lg:flex-row items-center lg:items-start gap-8 md:gap-16 lg:gap-32 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto py-10 md:py-0"
           >
             <motion.div
               initial={{ scale: 1 }}
-              animate={{ scale: isMobile ? 1.1 : 1.5 }}
+              animate={{ scale: isMobile ? 1 : 1.5 }}
               transition={{ 
                 duration: 0.6,
                 ease: "easeOut"
               }}
-              className="flex-shrink-0 w-full sm:w-auto lg:ml-12"
+              className="flex-shrink-0 w-full sm:w-auto flex justify-center lg:block lg:ml-12"
               onClick={() => setSelectedMember(null)}
               style={{ cursor: 'pointer' }}
             >
@@ -145,23 +145,29 @@ export function Team() {
                 handle={selectedMember.handle}
                 status={selectedMember.status}
                 avatarUrl={selectedMember.avatarUrl}
-                enableTilt={true}
+                enableTilt={!isMobile}
                 showUserInfo={true}
                 onContactClick={() => console.log(`Contacting ${selectedMember.name}`)}
               />
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: isMobile ? 0 : 50, y: isMobile ? 20 : 0 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="pt-0 lg:pt-8 w-full lg:flex-1 z-10"
+              className="pt-4 lg:pt-8 w-full lg:flex-1 z-10 text-center lg:text-left"
             >
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6" style={{ color: 'black', fontFamily: 'Inter, sans-serif' }}>
                 Message from {selectedMember.role}
               </h2>
-              <p className="text-xl sm:text-2xl lg:text-3xl leading-relaxed" style={{ color: 'black', fontFamily: 'Inter, sans-serif' }}>
+              <p className="text-lg sm:text-2xl lg:text-3xl leading-relaxed" style={{ color: 'black', fontFamily: 'Inter, sans-serif' }}>
                 {selectedMember.message}
               </p>
+              <button 
+                onClick={() => setSelectedMember(null)}
+                className="mt-8 px-6 py-2 bg-slate-100 rounded-full font-medium md:hidden"
+              >
+                Back to Team
+              </button>
             </motion.div>
           </motion.div>
         )}
